@@ -1,35 +1,31 @@
 <template>
-  <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
-    <v-carousel-item v-for="(slide, i) in slides" :key="i">
-      <v-sheet :color="colors[i]" height="100%">
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="text-h2">
-            {{ slide }} Slide
-          </div>
-          <v-icon
-            large
-            color="green darken-2"
-          >
-            mdi-domain
-          </v-icon>
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel>
+  <vue-horizontal responsive>
+    <section v-for="item in items" :key="item.title">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.content }}</p>
+    </section>
+  </vue-horizontal>
 </template>
+
 <script>
+import VueHorizontal from 'vue-horizontal'
+
 export default {
+  components: { VueHorizontal },
   data () {
     return {
-      colors: [
-        'indigo',
-        'warning',
-        'pink darken-2',
-        'red lighten-1',
-        'deep-purple accent-4'
-      ],
-      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth']
+      // E.g: creates 20 array items...
+      items: [...Array(20).keys()].map((i) => {
+        return { title: `Item ${i}`, content: `🚀 Content ${i}` }
+      })
     }
   }
 }
 </script>
+
+<style scoped>
+section {
+  padding: 16px 24px;
+  background: #460404;
+}
+</style>
