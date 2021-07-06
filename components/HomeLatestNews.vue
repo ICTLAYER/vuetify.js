@@ -1,9 +1,24 @@
 <template>
   <vue-horizontal responsive>
-    <section v-for="item in items" :key="item.title">
-      <h3>{{ item.title }}</h3>
-      <p>{{ item.content }}</p>
-    </section>
+    <v-card
+      v-for="item in items"
+      :key="item.title"
+      class="mx-auto"
+      max-width="344"
+      outlined
+    >
+      <v-list-item three-line>
+        <v-list-item-content>
+          <div class="text-overline mb-4">
+            {{ item.title }}
+          </div>
+          <v-list-item-title class="text-h5 mb-1">
+            {{ item.content }}
+          </v-list-item-title>
+          <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
   </vue-horizontal>
 </template>
 
