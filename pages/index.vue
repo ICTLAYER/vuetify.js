@@ -52,7 +52,6 @@
 <script>
 import HomeCarousel from '~/components/HomeCarousel.vue'
 import HomeLatestNews from '~/components/HomeLatestNews.vue'
-
 export default {
   components: {
     HomeCarousel,
