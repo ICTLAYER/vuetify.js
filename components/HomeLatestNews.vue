@@ -1,21 +1,17 @@
 <template>
   <vue-horizontal responsive>
-    <v-card
-      v-for="item in items"
-      :key="item.title"
-      class="mx-auto"
-      max-width="344"
-      outlined
-    >
+    <v-card v-for="item in items" :key="item.title">
       <v-list-item three-line>
         <v-list-item-content>
-          <div class="text-overline mb-4">
+          <div>
             {{ item.title }}
           </div>
-          <v-list-item-title class="text-h5 mb-1">
+          <v-list-item-title>
             {{ item.content }}
           </v-list-item-title>
-          <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+          <v-list-item-subtitle>
+            Greyhound divisely hello coldly fonwderfully
+          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-card>
@@ -37,10 +33,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-section {
-  padding: 16px 24px;
-  background: #460404;
-}
-</style>

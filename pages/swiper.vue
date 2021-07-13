@@ -1,36 +1,65 @@
 <template>
-  <div class="example">
+  <div>
     <!-- component: only render Swiper on browser env -->
     <client-only>
       <swiper
         ref="carousel"
-        class="swiper"
+
         :options="swiperOptions"
         @ready="onSwiperRedied"
         @clickSlide="onSwiperClickSlide"
         @slideChangeTransitionStart="onSwiperSlideChangeTransitionStart"
       >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide v-for="index in 16" :key="index">
+          <v-sheet
+            :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
+            class="pa-3"
+          >
+            <v-skeleton-loader
+              class="mx-auto"
+              max-width="300"
+              type="card"
+            />
+            Akaash {{ index }}
+          </v-sheet>
+        </swiper-slide>
         <div slot="pagination" class="swiper-pagination" />
       </swiper>
     </client-only>
     <!-- directive: render origin html on server & render Swiper on browser -->
+    <div>
+      <p>Hello</p>
+    </div>
     <!-- You can get the swiper instance object in current component context by the name: "mySwiper"  -->
     <div
       v-swiper:myDirectiveSwiper="swiperOptions"
-      class="swiper"
       @ready="onSwiperRedied"
       @click-slide="onSwiperClickSlide"
       @slide-change-transition-start="onSwiperSlideChangeTransitionStart"
     >
       <div class="swiper-wrapper">
-        <div v-for="index in 6" :key="index" class="swiper-slide">
-          <span>Slide {{ index }}</span>
+        <div v-for="index in 16" :key="index" class="swiper-slide">
+          <span>
+            <v-card
+              class="mx-auto"
+              max-width="400"
+            >
+              <v-img
+                class="white--text align-end"
+                height="200px"
+                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              >
+                <v-card-title>Top 10 Australian beaches</v-card-title>
+              </v-img>
+              <v-card-subtitle class="pb-0">
+                Gagan {{ index }}
+              </v-card-subtitle>
+              <v-card-text class="text--primary">
+                <div>Whitehaven Beach</div>
+                <div>Whitsunday Island, Whitsunday Islands</div>
+              </v-card-text>
+            </v-card>
+          </span>
         </div>
       </div>
       <div class="swiper-pagination swiper-pagination-bullets" />
@@ -41,16 +70,22 @@
 <script>
 export default {
   name: 'SwiperNuxt',
+  inject: {
+    theme: {
+      default: { isDark: false }
+    }
+  },
   data () {
     return {
       swiperOptions: {
-        loop: true,
-        slidesPerView: 'auto',
+        loop: false,
+        slidesPerView: '4.1',
         centeredSlides: true,
-        spaceBetween: 30,
+        spaceBetween: 10,
+        grabCursor: true,
         pagination: {
           el: '.swiper-pagination',
-          dynamicBullets: true
+          dynamicBullets: false
         }
       }
     }
@@ -77,9 +112,7 @@ export default {
     width: 100%;
     .swiper-slide {
       text-align: center;
-      font-size: 38px;
-      font-weight: 700;
-      background-color: #eee;
+      background-color: rgb(116, 109, 109);
       display: flex;
       justify-content: center;
       align-items: center;
