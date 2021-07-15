@@ -55,23 +55,25 @@
         <nuxt />
       </v-container>
     </v-main>
+    <!-- right drawer start -->
     <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
+      app
+      clipped
+      right
     >
       <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
+        <v-list-item
+          v-for="n in 5"
+          :key="n"
+          link
+        >
+          <v-list-item-content>
+            <v-list-item-title>Item {{ n }}</v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <!-- right drawer end -->
     <v-footer
       :absolute="!fixed"
       app
