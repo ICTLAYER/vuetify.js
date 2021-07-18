@@ -4,6 +4,21 @@
       <div class="text-center">
         <HomeCarousel />
         <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
+        <Swiper />
+        <HomeCarousel />
       </div>
     </v-col>
   </v-row>

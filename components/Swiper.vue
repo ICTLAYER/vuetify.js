@@ -40,7 +40,7 @@ export default {
     return {
       swiperOptions: {
         loop: true,
-        slidesPerView: '4',
+        slidesPerView: '5',
         centeredSlides: true,
         spaceBetween: 10,
         grabCursor: true,

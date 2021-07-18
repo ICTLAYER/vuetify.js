@@ -1,9 +1,10 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
+      color="yellow"
       fixed
       app
     >
@@ -24,67 +25,56 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+    <v-app-bar :clipped-left="clipped" color="red" fixed app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-btn color="yellow" icon @click.stop="miniVariant = !miniVariant">
+        <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
       <NuxtLink to="/">
-        <img
-          v-toolbar-title
-          src="/v.png"
-          width="20px"
-        > {{ title }}
+        <img v-toolbar-title src="/v.png" width="20px">
       </NuxtLink>
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
+      <SearchBox />
+      <v-spacer />
+      <v-btn color="black" icon @click.stop="rightDrawer = !rightDrawer">
+        <v-icon>mdi-dialpad</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-main>
     <!-- right drawer start -->
     <v-navigation-drawer
+      v-model="rightDrawer"
+      :right="right"
       app
       clipped
-      right
+      temporary
+      fixed
     >
-      <v-list>
-        <v-list-item
-          v-for="n in 5"
-          :key="n"
-          link
-        >
-          <v-list-item-content>
-            <v-list-item-title>Item {{ n }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <v-app-bar>
+        <v-toolbar-title>Notification</v-toolbar-title>
+        <v-spacer />
+      </v-app-bar>
+      <Notification />
     </v-navigation-drawer>
     <!-- right drawer end -->
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <FooterNav />
   </v-app>
 </template>
 
 <script>
+import FooterNav from '~/components/FooterNav.vue'
+import Notification from '~/components/Notification.vue'
+import SearchBox from '~/components/SearchBox.vue'
 export default {
+  components: {
+    FooterNav,
+    Notification,
+    SearchBox
+  },
   data () {
     return {
       clipped: true,
