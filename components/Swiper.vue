@@ -4,7 +4,6 @@
     <client-only>
       <swiper
         ref="carousel"
-
         :options="swiperOptions"
         @ready="onSwiperRedied"
         @clickSlide="onSwiperClickSlide"
@@ -23,7 +22,7 @@
             Akaash {{ index }}
           </v-sheet>
         </swiper-slide>
-        <div slot="pagination" class="swiper-pagination" />
+        <!-- <div slot="pagination" class="swiper-pagination" /> -->
       </swiper>
     </client-only>
   </div>

@@ -35,6 +35,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/device',
     '@nuxtjs/tailwindcss'
   ],
 
@@ -43,7 +44,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-i18n'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

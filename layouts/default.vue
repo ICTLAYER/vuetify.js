@@ -23,14 +23,14 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <v-list-item-action color="blue" icon @click.stop="miniVariant = !miniVariant">
+          <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
+        </v-list-item-action>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" color="red" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn color="yellow" icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
-      </v-btn>
-      <NuxtLink to="/">
+      <NuxtLink v-if="$device.isDesktop" to="/">
         <img v-toolbar-title src="/v.png" width="20px">
       </NuxtLink>
       <v-spacer />
