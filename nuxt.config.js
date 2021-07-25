@@ -23,7 +23,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' }
+    { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' },
+    { src: '@/plugins/lang.js', mode: 'client' },
+    { src: '~/plugins/i18n.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -38,7 +40,6 @@ export default {
     '@nuxtjs/device',
     '@nuxtjs/tailwindcss'
   ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -47,6 +48,18 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-i18n'
   ],
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
+      { code: 'bn', iso: 'bn-BN', file: 'bn-BN.js', name: 'Bengali' }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    strategy: 'no_prefix',
+    vueI18n: { fallbackLocale: 'en' },
+    vuex: { syncLocale: true }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

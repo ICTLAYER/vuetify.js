@@ -28,7 +28,7 @@
         </v-list-item-action>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" color="red" fixed app>
+    <v-app-bar :clipped-left="clipped" color="gray" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <NuxtLink v-if="$device.isDesktop" to="/">
         <img v-toolbar-title src="/v.png" width="20px">
@@ -36,6 +36,12 @@
       <v-spacer />
       <SearchBox />
       <v-spacer />
+      <nuxt-link :to="switchLocalePath('en')">
+        EN |
+      </nuxt-link>
+      <nuxt-link :to="switchLocalePath('bn')">
+        | BN
+      </nuxt-link>
       <v-btn color="black" icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-dialpad</v-icon>
       </v-btn>
@@ -83,7 +89,7 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Home',
           to: '/'
         },
         {
@@ -102,6 +108,9 @@ export default {
       rightDrawer: false,
       title: 'ICT Layer'
     }
+  },
+  head () {
+    return this.$nuxtI18nHead()
   }
 }
 </script>
