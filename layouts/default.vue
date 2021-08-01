@@ -1,13 +1,29 @@
 <template>
   <v-app>
+    <!-- Left Nav Sart -->
+    <!-- Left nav for desktop start  -->
     <v-navigation-drawer
+      v-if="$device.isDesktop"
       v-model="drawer"
-      :mini-variant="miniVariant"
+      :mini-variant="true"
       :clipped="clipped"
-      color="yellow"
+      color="warning"
       fixed
       app
+      expand-on-hover
     >
+      <v-list-item class="px-2">
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/85.jpg" />
+        </v-list-item-avatar>
+        <v-list-item-title>John Leider</v-list-item-title>
+        <v-btn
+          icon
+        >
+          <v-icon>mdi-logout-variant</v-icon>
+        </v-btn>
+      </v-list-item>
+      <v-divider />
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -23,11 +39,125 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
-        <v-list-item-action color="blue" icon @click.stop="miniVariant = !miniVariant">
-          <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
-        </v-list-item-action>
       </v-list>
+      <v-divider />
+      <v-list
+        nav
+        dense
+      >
+        <NuxtLink to="/inspire">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-folder</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>My Files</v-list-item-title>
+          </v-list-item>
+        </NuxtLink>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-account-multiple</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Shared with me</v-list-item-title>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-star</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Starred</v-list-item-title>
+        </v-list-item>
+      </v-list>
+      <template #append>
+        <div class="pa-2">
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            block
+            inset
+            title="Switch Dark or Ligh"
+          />
+        </div>
+      </template>
     </v-navigation-drawer>
+    <!-- Left nav for desktop end  -->
+    <!-- Left nav for mobile start  -->
+    <v-navigation-drawer
+      v-if="$device.isMobile"
+      v-model="drawer"
+      :mini-variant="false"
+      :clipped="clipped"
+      color="yellow"
+      app
+    >
+      <v-list-item class="px-2">
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/85.jpg" />
+        </v-list-item-avatar>
+        <v-list-item-title>John Leider</v-list-item-title>
+        <v-btn
+          icon
+        >
+          <v-icon>mdi-logout-variant</v-icon>
+        </v-btn>
+      </v-list-item>
+      <v-divider />
+      <v-list>
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-divider />
+      <v-list
+        nav
+        dense
+      >
+        <NuxtLink to="/inspire">
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-folder</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>My Files</v-list-item-title>
+          </v-list-item>
+        </NuxtLink>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-account-multiple</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Shared with me</v-list-item-title>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-star</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Starred</v-list-item-title>
+        </v-list-item>
+      </v-list>
+      <template #append>
+        <div class="pa-2">
+          <v-btn large block rounded>
+            Light
+            <v-switch
+              v-model="$vuetify.theme.dark"
+              block
+              class="pl-3 pt-2"
+              inset
+              title="Switch Dark or Ligh"
+            /> Dark
+          </v-btn>
+        </div>
+      </template>
+    </v-navigation-drawer>
+    <!-- Left nav for mobile end  -->
+    <!-- Left Nav End -->
     <v-app-bar :clipped-left="clipped" color="gray" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <NuxtLink v-if="$device.isDesktop" to="/">
@@ -36,14 +166,29 @@
       <v-spacer />
       <SearchBox />
       <v-spacer />
-      <nuxt-link :to="switchLocalePath('en')">
-        EN |
-      </nuxt-link>
-      <nuxt-link :to="switchLocalePath('bn')">
-        | BN
-      </nuxt-link>
+      <v-menu transition="slide-x-transition" offset-y>
+        <template #activator="{ on, attrs }">
+          <v-btn
+            icon
+            color="pink"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-translate</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            :to="switchLocalePath(locale.code)"
+          >
+            <v-list-item-title>{{ locale.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-btn color="black" icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-dialpad</v-icon>
+        <v-icon>mdi-bell-alert-outline</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -88,29 +233,44 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home',
           title: 'Home',
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Grid',
+          to: '/grid'
         },
         {
           icon: 'mdi-chart-bubble',
           title: 'Swiper',
           to: '/swiper'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'List',
+          to: '/list'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Post',
+          to: '/post'
         }
       ],
-      miniVariant: true,
       right: true,
       rightDrawer: false,
       title: 'ICT Layer'
     }
   },
   head () {
-    return this.$nuxtI18nHead()
+    // return this.$nuxtI18nHead()
+    return this.$nuxtI18nHead({ addSeoAttributes: true })
+  },
+  computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
   }
 }
 </script>

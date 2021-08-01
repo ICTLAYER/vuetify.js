@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  server: {
+    host: '10.0.0.9' // default: localhost
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - nuxt',
@@ -8,7 +11,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'SEO Description' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -46,20 +49,31 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    'nuxt-i18n'
+    [
+      'nuxt-i18n',
+      {
+        // seo: true,
+        // baseUrl: 'http://10.0.0.9:3000',
+        // detectBrowserLanguage: {
+        //   useCookie: true,
+        //   cookieKey: 'i18n_redirected',
+        //   cookieCrossOrigin: true,
+        //   alwaysRedirect: true,
+        //   onlyOnRoot: true // recommended
+        // },
+        defaultLocale: 'en',
+        locales: [
+          { code: 'en', file: 'en-US.js', iso: 'en-US', name: 'English' },
+          { code: 'bn', file: 'bn-BN.js', iso: 'bn-BN', name: 'Bengali', isCatchallLocale: true }
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        strategy: 'prefix_except_default',
+        vueI18n: { fallbackLocale: 'en' },
+        vuex: { syncLocale: true }
+      }
+    ]
   ],
-  i18n: {
-    defaultLocale: 'en',
-    locales: [
-      { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
-      { code: 'bn', iso: 'bn-BN', file: 'bn-BN.js', name: 'Bengali' }
-    ],
-    lazy: true,
-    langDir: 'lang/',
-    strategy: 'no_prefix',
-    vueI18n: { fallbackLocale: 'en' },
-    vuex: { syncLocale: true }
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -78,13 +92,13 @@ export default {
       dark: false,
       themes: {
         light: {
-          primary: colors.red.darken1, // #E53935
-          secondary: colors.red.lighten4, // #FFCDD2
-          accent: colors.indigo.base, // #3F51B5
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          primary: colors.green.base,
+          secondary: colors.teal.base,
+          accent: colors.lime.base,
+          error: colors.red.base,
+          warning: colors.orange.base,
+          info: colors.blue.base,
+          success: colors.cyan.base
         },
         dark: {
           primary: colors.yellow.darken2,

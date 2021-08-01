@@ -1,3 +1,5 @@
-export default {
-  Home: 'Home'
+export default async (context, locale) => {
+  return await Promise.resolve({
+    Home: 'Home'
+  })
 }
