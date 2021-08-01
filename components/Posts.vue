@@ -50,10 +50,10 @@ export default {
           .then((response) => {
             if (response.data.length > 1) {
               response.data.forEach(item => this.titles.push(item))
-            } else {
             }
           })
           .catch((err) => {
+            // eslint-disable-next-line no-console
             console.log(err)
           })
       }, 500)
@@ -61,9 +61,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.theme--light.v-card {
-  background-color: #f5f5f5;
-}
-</style>

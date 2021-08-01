@@ -28,7 +28,8 @@ export default {
   plugins: [
     { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' },
     { src: '@/plugins/lang.js', mode: 'client' },
-    { src: '~/plugins/i18n.js' }
+    { src: '~/plugins/i18n.js' },
+    { src: '~/plugins/infiniteloading', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
