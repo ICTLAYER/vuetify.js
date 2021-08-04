@@ -254,8 +254,13 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Post',
-          to: '/post'
+          title: 'Post List',
+          to: '/postlist'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Infinity List',
+          to: '/infinitylist'
         }
       ],
       right: true,

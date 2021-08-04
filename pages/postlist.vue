@@ -1,21 +1,30 @@
 <template>
-  <v-card flat>
-    <v-layout row wrap>
-      <v-flex v-for="(title, index) in titles" :key="index">
-        <v-card flat hover class="white pb-2 mb-1 pl-2">
-          <v-layout>
-            <v-flex xs10>
-              <div class="py-2">
-                {{ title.body }}
-              </div>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
-    </v-layout>
-    <!--Add here the vuetify directive -->
-    <v-card v-intersect="infiniteScrolling" />
-  </v-card>
+  <v-row dense>
+    <v-col cols="12">
+      <v-card
+        v-for="(title, index) in titles"
+        :key="index"
+        class="mb-2"
+        hover
+      >
+        <v-img
+          v-if="title.mini_thumbs_featured_image_url"
+          loading="lazy"
+          :src="''+title.mini_thumbs_featured_image_url"
+          height="500px"
+        />
+        <v-card-title class="text-h5">
+          {{ title.post_title }}
+        </v-card-title>
+
+        <v-card-subtitle>{{ title.short_desc }}</v-card-subtitle>
+      </v-card>
+      <!--Add here the vuetify directive -->
+      <v-card
+        v-intersect="infiniteScrolling"
+      />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -31,7 +40,7 @@ export default {
   },
   computed: {
     url () {
-      return 'https://jsonplaceholder.typicode.com/posts?_page=' + this.page
+      return 'https://bengalnews.cmslayer.com/api/AllPost/getData/asdf1234/' + this.page
     }
   },
   created () {
