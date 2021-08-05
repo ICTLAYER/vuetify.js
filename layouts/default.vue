@@ -261,6 +261,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Infinity List',
           to: '/infinitylist'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Tailwindui List',
+          to: '/tailwindui'
         }
       ],
       right: true,
