@@ -19,16 +19,12 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    // swiper style
-    // 'swiper/css/swiper.css'
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // { src: '~/plugins/api.js' },
     // { src: '~/plugins/axios.js' },
-    { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' },
     { src: '@/plugins/lang.js', mode: 'client' },
     { src: '~/plugins/i18n.js' },
     { src: '~/plugins/infiniteloading', ssr: false }

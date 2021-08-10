@@ -244,11 +244,6 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Swiper',
-          to: '/swiper'
-        },
-        {
-          icon: 'mdi-chart-bubble',
           title: 'List',
           to: '/list'
         },
