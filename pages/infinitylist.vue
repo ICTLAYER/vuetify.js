@@ -79,8 +79,8 @@ export default {
   },
   computed: {
     url () {
-      // return 'https://bengalnews.cmslayer.com/api/AllPost/getData/asdf1234/' + this.page
-      return 'http://localhost:70/cmslayerv3/api/AllPost/getData/asdf1234/' + this.page
+      return 'https://bengalnews.cmslayer.com/api/AllPost/getData/asdf1234/' + this.page
+      // return 'http://localhost:/cmslayerv3/api/AllPost/getData/asdf1234/' + this.page
     }
   },
   created () {

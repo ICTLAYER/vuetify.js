@@ -8,10 +8,10 @@
         <v-card hover dark>
           <div class="d-flex flex-no-wrap justify-space-between">
             <v-avatar class="ma-1" size="125" tile>
-              <v-img :src="item.post.post_featured_thumbnail_img" />
+              <v-img :src="item.post_featured_thumbnail_img" />
             </v-avatar>
             <div>
-              <v-card-title class="headline" v-text="item.post.post_title" />
+              <v-card-title class="headline" v-text="item.post_title" />
             </div>
           </div>
         </v-card>
@@ -23,7 +23,7 @@
 export default {
   async asyncData ({ $axios }) {
     // const items = await $axios.$get('http://localhost:70/cmslayerv3/api/AllPost/getData/asdf1234/')
-    const items = await $axios.$get('http://localhost:8080/api/allpost-api')
+    const items = await $axios.$get('http://localhost:8080/api/post-api-all')
     return { items }
   }
 }
