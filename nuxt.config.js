@@ -1,9 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  server: {
-    host: '10.0.0.9' // default: localhost
-  },
+  // server: {
+  //   host: '10.0.0.9' // default: localhost
+  // },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - nuxt',
@@ -26,6 +26,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // { src: '~/plugins/api.js' },
+    // { src: '~/plugins/axios.js' },
     { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' },
     { src: '@/plugins/lang.js', mode: 'client' },
     { src: '~/plugins/i18n.js' },
@@ -48,6 +50,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     [
@@ -77,7 +80,14 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // baseURL: 'http://10.0.0.9:3000',
+    // proxy: true
+  },
+  // proxy: {
+  //   'http://10.0.0.9:3000/ak47/': 'http://localhost:8080'
+
+  // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -113,6 +123,10 @@ export default {
       }
     }
   },
+
+  // devServer: {
+  //   proxy: 'http://localhost:8080'
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -1,0 +1,40 @@
+[
+    {
+        "id": "2",
+        "name": "Computer",
+        "other_lang_name": "Computer",
+        "children_array": "17,18,19,22",
+        "url": "/category/computer",
+        "status": "active",
+        "tag": [
+            "tag1",
+            "tag2"
+        ],
+        "children": [
+            {
+                "id": "8",
+                "name": "Computer",
+                "other_lang_name": "Computer",
+                "children_array": "17,18,19,22",
+                "url": "/category/computer",
+                "status": "active",
+                "tag": [
+                    "tag1",
+                    "tag2"
+                ]
+            },
+            {
+                "id": "10",
+                "name": "Computer",
+                "other_lang_name": "Computer",
+                "children_array": "17,18,19,22",
+                "url": "/category/computer",
+                "status": "active",
+                "tag": [
+                    "tag1",
+                    "tag2"
+                ]
+            }
+        ]
+    }
+]
