@@ -27,12 +27,6 @@
 </template>
 <script>
 export default {
-  async asyncData ({ $axios }) {
-    const items = await $axios.$get('http://localhost:8080/api/post-category-api-child-chain-post-list/20/5/1')
-    console.log(items)
-
-    return { items }
-  },
   data () {
     return {
       items: [],
@@ -41,10 +35,20 @@ export default {
       pagination_limit: 5
     }
   },
+  async fetch () {
+    const items = await this.$axios.$get('http://localhost:8080/api/post-category-api-child-chain-post-list/20/5/1')
+    console.log(items)
+
+    return this.item
+  },
   methods: {
     api_call () {
       this.$axios.setHeader('X-API-KEY', '12345') // example how to pass headers
       this.$axios.$post('http://localhost:8080/api/Test_bengal_api_c', { post_data: 1234 }).then(res => console.log(res))// example for post request...
+    },
+    async fetchSomething () {
+      const ip = await this.$axios.$get('http://icanhazip.com')
+      this.ip = ip
     },
     async pagination_clicked () {
       this.pagination_start = this.pagination_start + 5
