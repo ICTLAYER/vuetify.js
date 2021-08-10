@@ -269,6 +269,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'API Post List By Category ',
+          to: '/api_post_category_post_list'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }

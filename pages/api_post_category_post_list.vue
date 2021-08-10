@@ -28,13 +28,15 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const res = await $axios.$get('http://localhost:8080/api/post-api-pagination/5/1')
-    const items = res
+    const items = await $axios.$get('http://localhost:8080/api/post-category-api-child-chain-post-list/20/5/1')
+    console.log(items)
+
     return { items }
   },
   data () {
     return {
       items: [],
+      post_category: 20,
       pagination_start: 1,
       pagination_limit: 5
     }
@@ -46,7 +48,7 @@ export default {
     },
     async pagination_clicked () {
       this.pagination_start = this.pagination_start + 5
-      const res = await this.$axios.$get(`http://localhost:8080/api/post-api-pagination/${this.pagination_limit}/${this.pagination_start}`)
+      const res = await this.$axios.$get(`http://localhost:8080/api/post-category-api-child-chain-post-list/${this.post_category}/${this.pagination_limit}/${this.pagination_start}`)
       this.items = []
       this.items = res
     }
