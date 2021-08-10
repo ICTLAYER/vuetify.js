@@ -28,7 +28,7 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const res = await $axios.$get('http://localhost:8080/api/post-api-segment/5/1')
+    const res = await $axios.$get('http://localhost:8080/api/post-api-pagination/5/1')
     const items = res
     console.log(res)
 
@@ -48,7 +48,7 @@ export default {
     },
     async pagination_clicked () {
       this.pagination_start = this.pagination_start + 5
-      const res = await this.$axios.$get(`http://localhost:8080/api/post-api-segment/${this.pagination_limit}/${this.pagination_start}`)
+      const res = await this.$axios.$get(`http://localhost:8080/api/post-api-pagination/${this.pagination_limit}/${this.pagination_start}`)
       this.items = []
       this.items = res
     }
