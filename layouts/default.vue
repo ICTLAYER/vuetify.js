@@ -279,6 +279,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'API Fetch with Pagination ',
+          to: '/api_fetch_store_pagination'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }
