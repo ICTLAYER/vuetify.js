@@ -4,7 +4,7 @@
     fluid
   >
     <v-row dense>
-      <v-btn class="ml-2 mt-5" outlined rounded small @click="api_call()">
+      <v-btn class="ml-2 mt-5" outlined rounded small>
         START RADIO
       </v-btn>
       <v-col v-for="(item, i) in items" :key="i" cols="6" sm="3">

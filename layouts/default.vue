@@ -289,6 +289,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'Props Page ',
+          to: '/PropsPage'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }
