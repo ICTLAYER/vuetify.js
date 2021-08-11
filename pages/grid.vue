@@ -88,10 +88,10 @@
   </v-container>
 </template>
 <script>
-import HomeCarousel from '~/components/HomeCarousel.vue'
+// import HomeCarousel from '~/components/HomeCarousel.vue'
 export default {
-  components: {
-    HomeCarousel
-  }
+  // components: {
+  //   HomeCarousel
+  // }
 }
 </script>

@@ -284,6 +284,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'API Fetch Post C. Module ',
+          to: '/api_fetch_with_store_module'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }
