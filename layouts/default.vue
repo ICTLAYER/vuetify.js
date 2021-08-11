@@ -160,9 +160,9 @@
     <!-- Left Nav End -->
     <v-app-bar :clipped-left="clipped" color="gray" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <NuxtLink v-if="$device.isDesktop" to="/">
+      <!-- <NuxtLink v-if="$device.isDesktop" to="/">
         <img v-toolbar-title src="/v.png" width="20px">
-      </NuxtLink>
+      </NuxtLink> -->
       <v-spacer />
       <SearchBox />
       <v-spacer />
@@ -274,6 +274,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'API Fetch with Store ',
+          to: '/api_fetch_with_store'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }
@@ -291,6 +296,14 @@ export default {
     availableLocales () {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
+  },
+  created () {
+    console.log('created')
+
+    this.$store.dispatch('getPosts')
+    // const posts = this.$store.post_list
+
+    // console.log(posts)
   }
 }
 </script>
