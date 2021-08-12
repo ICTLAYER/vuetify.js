@@ -56,6 +56,16 @@
       "id": 16,
       "body": "some content 16",
       "postId": 2
+    },
+    {
+      "id": 100,
+      "body": "some content 100",
+      "postId": 2
+    },
+    {
+      "id": 200,
+      "body": "some content 200",
+      "postId": 6
     }
   ],
   "profile": {

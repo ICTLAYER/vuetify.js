@@ -11,36 +11,32 @@
       <br>
     </v-row>
     <v-row>
-      <ul>
+      <!-- <ul>
         <li v-for="article in articles" :key="article.id">
           {{ article.body }}
         </li>
-      </ul>
+      </ul> -->
       <v-btn class="ml-2 mt-5" outlined rounded small @click="post_to_json()">
         POST To Json
       </v-btn>
+      <nuxt-content :document="page" />
     </v-row>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  async asyncData ({ $content }) {
+    const page = await $content('db').fetch()
+    console.log(page)
+
     return {
-    //   articles: []
+      page
     }
-  },
-  computed: {
-    articles () {
-      return this.$store.state.json_data_fetch.post_list
-    }
-  },
-  created () {
-    this.$store.dispatch('json_data_fetch/getPosts')
   },
   methods: {
     post_to_json () {
-      this.$axios.$post('http://localhost:3003/comments', { id: 16, body: 'some content 16', postId: 2 })
+      this.$axios.$post('http://localhost:3003/comments', { id: 200, body: 'some content 200', postId: 6 })
     }
   }
 }
