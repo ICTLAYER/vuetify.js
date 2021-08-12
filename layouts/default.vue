@@ -294,6 +294,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'API JSON Page ',
+          to: '/api_json_api'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }

@@ -49,6 +49,7 @@ export default {
     // '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-jsonapi',
     [
       'nuxt-i18n',
       {
@@ -71,6 +72,12 @@ export default {
         strategy: 'prefix_except_default',
         vueI18n: { fallbackLocale: 'en' },
         vuex: { syncLocale: true }
+      },
+      'nuxt-jsonapi',
+      {
+        // baseURL: 'http://localhost:3000/jsonapi',
+        baseUrl: 'http://localhost:3000/jsonapi'
+        /* other module options */
       }
     ]
   ],
