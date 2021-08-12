@@ -9,7 +9,10 @@
 export default {
   props: {
     title: {
-      type: Array
+      type: Array,
+      default () {
+        return []
+      }
     }
   }
 }
