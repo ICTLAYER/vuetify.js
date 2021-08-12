@@ -1,15 +1,15 @@
 <template>
-  <v-row>
-    <v-col cols="12" sm="12" md="12">
-      Title : {{ title }}
-    </v-col>
-  </v-row>
+  <div>
+    <v-row v-for="(item_title,i) in title" :key="i">
+      POST Title : {{ item_title.post_title }}
+    </v-row>
+  </div>
 </template>
 <script>
 export default {
   props: {
     title: {
-      type: String
+      type: Array
     }
   }
 }

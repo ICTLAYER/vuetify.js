@@ -6,6 +6,13 @@ export const state = () => ({
 // mutations
 
 export const mutations = {
+  setPostList (state, posts) {
+    console.log('mutation entered')
+
+    state.post_list = posts
+
+    console.log(state.post_list)
+  },
   setPostListCategoryChild (state, posts) {
     console.log('mutation entered')
 
