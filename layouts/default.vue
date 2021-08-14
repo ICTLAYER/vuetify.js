@@ -304,6 +304,16 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'content_api_with_form',
+          to: '/content_api_with_form'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'createPostToJson',
+          to: '/createPostToJson'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
         }

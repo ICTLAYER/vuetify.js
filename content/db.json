@@ -1,9 +1,40 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": 420,
+      "title": "post 420",
+      "description": "post 420 d",
+      "email": "asd@gmail.com"
+    },
+    {
+      "id": 424,
+      "title": "post 424",
+      "description": "post 424 d",
+      "email": "asdf@and.com.bd"
+    },
+    {
+      "id": 425,
+      "title": "new post ",
+      "description": "new post ",
+      "email": "aa@aa"
+    },
+    {
+      "id": 426,
+      "title": "new post title",
+      "description": "new post title",
+      "email": "ww@22"
+    },
+    {
+      "id": 427,
+      "title": "ewdfwef",
+      "description": "ewfewfwef",
+      "email": "vv@gm.com"
+    },
+    {
+      "id": 428,
+      "title": "dfefewf",
+      "description": "wefewf",
+      "email": "eer@fewf"
     }
   ],
   "comments": [
@@ -66,9 +97,11 @@
       "id": 200,
       "body": "some content 200",
       "postId": 6
+    },
+    {
+      "id": 3000,
+      "body": "some content 3000",
+      "postId": 6
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
