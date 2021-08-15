@@ -64,8 +64,10 @@
   </div>
 </template>
 <script>
+
 export default {
   data: () => ({
+    // posts: [],
     valid: false,
     postTitle: '',
     postDescription: '',
@@ -86,6 +88,7 @@ export default {
   },
   created () {
     this.$store.dispatch('post_with_form/getPosts')
+    // this.posts = this.$store.state.post_with_form.post_list
   },
   methods: {
     submitForm () {
@@ -100,6 +103,8 @@ export default {
       }
       this.$axios.$post('http://localhost:3003/posts', posts)
       this.$store.dispatch('post_with_form/getPosts')
+      window.location.reload()
+      // this.posts = this.$store.state.post_with_form.post_list
     }
   }
 }

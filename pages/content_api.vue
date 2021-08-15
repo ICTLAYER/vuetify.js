@@ -17,10 +17,6 @@
       <v-btn class="ml-2 mt-5" outlined rounded small @click="post_to_json()">
         POST To Json
       </v-btn>
-      <posts>
-        {{ posts.title }}
-        <nuxt-content :document="posts" />
-      </posts>
     </v-row>
   </div>
 </template>

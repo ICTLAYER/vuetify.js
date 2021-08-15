@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "postTitle": "Et cumque nemo aliqu",
+      "postTitleOtherLang": "Praesentium id do ve",
+      "postSeoUrl": "Pariatur Voluptas r",
+      "postFeatured": "Yes",
+      "postContent": "Eligendi non et ea f"
+    },
+    {
+      "id": 2,
+      "postTitle": "Corporis ex quae rer",
+      "postTitleOtherLang": "Sit voluptas digniss",
+      "postSeoUrl": "Ut iure perspiciatis",
+      "postFeatured": "No",
+      "postContent": "Illo totam libero il"
+    },
+    {
+      "id": 3,
+      "postTitle": "Repellendus Volupta",
+      "postTitleOtherLang": "Voluptatibus esse eu",
+      "postSeoUrl": "Ex consequuntur labo",
+      "postFeatured": "Yes",
+      "postContent": "Consequuntur amet l"
+    }
+  ]
+}

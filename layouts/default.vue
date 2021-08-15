@@ -316,6 +316,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Tailwindui List',
           to: '/tailwindui'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'post create',
+          to: '/admin/post_create'
         }
       ],
       right: true,
