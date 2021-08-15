@@ -2,3 +2,10 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+&::-webkit-scrollbar {
+    width: 6px;
+    border-left: 1px solid #eb0909;
+}
+&::-webkit-scrollbar-thumb {
+    background-color: #d6872c;
+}

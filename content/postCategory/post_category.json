@@ -1,0 +1,58 @@
+{
+  "post_category": [
+    {
+      "post_category_id": 1,
+      "post_category_name": "post category name",
+      "post_category_name_other_lang": "Praesentium id do ve",
+      "post_category_url": "abcd-asd",
+      "post_category_child": [
+        {
+          "post_category_id": 11,
+          "post_category_name": "post category name 11",
+          "post_category_name_other_lang": "Praesentium id do ve",
+          "post_category_url": "abcd-asd-pop"
+        },
+        {
+          "post_category_id": 12,
+          "post_category_name": "post category name 12",
+          "post_category_name_other_lang": "Praesentium id do ve",
+          "post_category_url": "abcd-asd-dsa"
+        }
+      ]
+    },
+    {
+      "post_category_id": 2,
+      "post_category_name": "post category name 2",
+      "post_category_name_other_lang": "Sit voluptas digniss",
+      "post_category_url": "abcd-asd-ww",
+      "post_category_child": [
+        {
+          "post_category_id": 21,
+          "post_category_name": "post category name 21",
+          "post_category_name_other_lang": "Praesentium id do ve",
+          "post_category_url": "abcd-asd-000"
+        },
+        {
+          "post_category_id": 22,
+          "post_category_name": "post category name 22",
+          "post_category_name_other_lang": "Praesentium id do ve",
+          "post_category_url": "abcd-asd-404"
+        }
+      ]
+    },
+    {
+      "post_category_id": 3,
+      "post_category_name": "post category name 3",
+      "post_category_name_other_lang": "Voluptatibus esse eu",
+      "post_category_url": "abcd-asd-ff",
+      "post_category_child": [
+        {
+          "post_category_id": 31,
+          "post_category_name": "post category name 31",
+          "post_category_name_other_lang": "Praesentium id do ve",
+          "post_category_url": "abcd-asd"
+        }
+      ]
+    }
+  ]
+}

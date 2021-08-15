@@ -9,7 +9,7 @@
       "postContent": "Eligendi non et ea f"
     },
     {
-      "id": 2,
+      "id": 224234,
       "postTitle": "Corporis ex quae rer",
       "postTitleOtherLang": "Sit voluptas digniss",
       "postSeoUrl": "Ut iure perspiciatis",
@@ -17,12 +17,21 @@
       "postContent": "Illo totam libero il"
     },
     {
-      "id": 3,
+      "id": 55555,
       "postTitle": "Repellendus Volupta",
       "postTitleOtherLang": "Voluptatibus esse eu",
       "postSeoUrl": "Ex consequuntur labo",
       "postFeatured": "Yes",
       "postContent": "Consequuntur amet l"
+    },
+    {
+      "id": 55556,
+      "postTitle": "Dolore distinctio S",
+      "postTitleOtherLang": "Possimus iure ea ve",
+      "postSeoUrl": "Qui in dolore cum te",
+      "postFeatured": "Yes",
+      "postContent": "Unde et maiores volu",
+      "postCategory": "post category name"
     }
   ]
 }

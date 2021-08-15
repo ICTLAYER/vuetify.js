@@ -10,8 +10,6 @@ export const mutations = {
     console.log('mutation entered')
 
     state.post_list = posts
-
-    console.log(state.post_list)
   }
 }
 

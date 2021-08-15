@@ -64,10 +64,9 @@
   </div>
 </template>
 <script>
-
 export default {
   data: () => ({
-    // posts: [],
+    // category: postCategory,
     valid: false,
     postTitle: '',
     postDescription: '',
@@ -88,6 +87,7 @@ export default {
   },
   created () {
     this.$store.dispatch('post_with_form/getPosts')
+
     // this.posts = this.$store.state.post_with_form.post_list
   },
   methods: {
