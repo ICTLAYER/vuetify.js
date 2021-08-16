@@ -1,0 +1,42 @@
+{
+  "post_category": [
+    {
+      "id": 1,
+      "label": "post category name",
+      "children": [
+        {
+          "id": 11,
+          "label": "post category name 11"
+        },
+        {
+          "id": 12,
+          "label": "post category name 12"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "post category name 2",
+      "children": [
+        {
+          "id": 21,
+          "label": "post category name 21"
+        },
+        {
+          "id": 22,
+          "label": "post category name 22"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "label": "post category name 3",
+      "children": [
+        {
+          "id": 31,
+          "label": "post category name 31"
+        }
+      ]
+    }
+  ]
+}

@@ -321,6 +321,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'post create',
           to: '/admin/post_create'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'image upload',
+          to: '/image_upload'
         }
       ],
       right: true,
