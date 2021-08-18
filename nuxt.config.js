@@ -51,7 +51,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // '@nuxtjs/proxy',
+    '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
@@ -87,12 +87,13 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'http://10.0.0.9:3000',
-    // proxy: true
+    proxy: true
   },
-  // proxy: {
-  //   'http://10.0.0.9:3000/ak47/': 'http://localhost:8080'
-
-  // },
+  proxy: {
+    // 'http://10.0.0.9:3000/ak47/': 'http://localhost:8080'
+    // '/example/': 'https://jsonplaceholder.typicode.com'
+    '/api/': { target: 'http://localhost:3003', pathRewrite: { '^/api/': '' } }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

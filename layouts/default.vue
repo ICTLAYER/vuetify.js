@@ -297,6 +297,12 @@ export default {
           title: 'API JSON Page ',
           to: '/api_json_api'
         },
+
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Proxy Server',
+          to: '/proxy_json_server'
+        },
         {
           icon: 'mdi-chart-bubble',
           title: 'Content API',
