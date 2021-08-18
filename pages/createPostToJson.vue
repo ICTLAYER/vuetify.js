@@ -4,13 +4,24 @@
       <ul>
         <li v-for="post in posts" :key="post.id">
           id : {{ post.id }} =>
-          title: {{ post.title }}==
-          description: {{ post.description }} ==
-          email: {{ post.email }}
+          <br>
+          title: {{ post.postTitle }}==
+
+          description: <div v-html="post.postContent" /> ==
+          <!-- <client-only>
+            <quill-editor
+              ref="editor"
+              v-model="post.postContent"
+            />
+          </client-only> -->
+          <br>
+          postSeoUrl: {{ post.postSeoUrl }}
+          <img :src="post.postImage" width="100px" alt="">
+          ================================================================================================================
         </li>
       </ul>
     </v-row>
-    <v-form v-model="valid">
+    <!-- <v-form v-model="valid">
       <v-container>
         <v-row>
           <v-col
@@ -60,7 +71,7 @@
       >
         Submit
       </v-btn>
-    </v-form>
+    </v-form> -->
   </div>
 </template>
 <script>
@@ -87,8 +98,6 @@ export default {
   },
   created () {
     this.$store.dispatch('post_with_form/getPosts')
-
-    // this.posts = this.$store.state.post_with_form.post_list
   },
   methods: {
     submitForm () {
@@ -104,7 +113,6 @@ export default {
       this.$axios.$post('http://localhost:3003/posts', posts)
       this.$store.dispatch('post_with_form/getPosts')
       window.location.reload()
-      // this.posts = this.$store.state.post_with_form.post_list
     }
   }
 }

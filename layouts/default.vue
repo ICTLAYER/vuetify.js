@@ -326,6 +326,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'image upload',
           to: '/image_upload'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'file agent',
+          to: '/file_agent'
         }
       ],
       right: true,

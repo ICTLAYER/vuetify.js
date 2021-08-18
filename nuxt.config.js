@@ -19,7 +19,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    'quill/dist/quill.core.css',
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -27,7 +31,8 @@ export default {
     // { src: '~/plugins/axios.js' },
     { src: '@/plugins/lang.js', mode: 'client' },
     { src: '~/plugins/i18n.js' },
-    { src: '~/plugins/infiniteloading', ssr: false }
+    { src: '~/plugins/infiniteloading', ssr: false },
+    { src: '~plugins/nuxt-quill-plugin', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

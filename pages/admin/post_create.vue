@@ -44,11 +44,28 @@
 
         <treeselect v-model="postCategoryValue" :multiple="false" :options="postCategoryValueOptions" placeholder="Select Category" />
         <br>
-        <v-file-input
+        <!-- <v-file-input
           label="File input"
           outlined
           dense
-        />
+          type="file"
+          @change="previewFiles"
+        /> -->
+        <br>
+        <input type="file" @change="previewFiles">
+
+        <br>
+        <br>
+        <client-only>
+          <quill-editor
+            ref="editor"
+            v-model="content"
+            :options="editorOption"
+            @blur="onEditorBlur($event)"
+            @focus="onEditorFocus($event)"
+            @ready="onEditorReady($event)"
+          />
+        </client-only>
         <br>
         <v-btn
           :disabled="!valid"
@@ -72,10 +89,10 @@
 </template>
 <script>
 import Treeselect from '@riophae/vue-treeselect'
+import postCategoryTreeView from '../../content/postCategory/post_category_treeview.json'
 // import the styles
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 // import postCategory from '../../content/postCategory/post_category.json' // for tree less options
-import postCategoryTreeView from '../../content/postCategory/post_category_treeview.json'
 export default {
   components: { Treeselect },
   data: () => ({
@@ -108,7 +125,20 @@ export default {
     // postCategoryDataOptions: [
 
     // ],
-    postContent: ''
+    postContent: '',
+    postimage: '',
+
+    content: '<p>I am Example</p>',
+    editorOption: {
+      // Some Quill options...
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block', 'image']
+        ]
+      }
+    }
   }),
   created () {
     this.$store.dispatch('posts/posts/getPosts')
@@ -125,6 +155,26 @@ export default {
   },
 
   methods: {
+    onEditorBlur (editor) {
+      console.log('editor blur!', editor)
+    },
+    onEditorFocus (editor) {
+      console.log('editor focus!', editor)
+    },
+    onEditorReady (editor) {
+      console.log('editor ready!', editor)
+    },
+    previewFiles (event) {
+      const reader = new FileReader()
+      let rawImg = 'processing'
+      reader.onloadend = () => {
+        rawImg = reader.result
+        this.postimage = rawImg
+      }
+      let val = reader.readAsDataURL(event.target.files[0])
+      val = 0
+      console.log(val)
+    },
     validate () {
       this.$refs.form.validate()
       const validForm = this.$refs.form.validate()
@@ -136,15 +186,15 @@ export default {
         } else {
           incrementedId = this.$store.state.posts.posts.post_list[lastIndex - 1].id + 1
         }
-
         const posts = {
           id: incrementedId,
           postTitle: this.postTitle,
           postTitleOtherLang: this.postTitleOtherLang,
           postSeoUrl: this.postSeoUrl,
           postFeatured: this.postFeatured,
-          postContent: this.postContent,
-          postCategory: this.postCategoryValue
+          postContent: this.content,
+          postCategory: this.postCategoryValue,
+          postImage: this.postimage
         }
         this.$axios.$post('http://localhost:3003/posts', posts)
         window.location.reload()
