@@ -1,3 +1,4 @@
+// import nuxtStorage from 'nuxt-storage'
 // state
 export const state = () => ({
   post_list: [],
@@ -13,6 +14,8 @@ export const mutations = {
     console.log('mutation entered')
 
     state.post_list = posts
+
+    // nuxtStorage.localStorage.setData('localStoragePostList', state.post_list)
 
     console.log(state.post_list)
   },

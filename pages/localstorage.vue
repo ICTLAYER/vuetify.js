@@ -3,11 +3,11 @@
     <v-row dense>
       <ul>
         <li v-for="post in posts" :key="post.id">
-          id : {{ post.id }} =>
+          id : {{ post.post_id }} =>
           <br>
-          title: {{ post.postTitle }}==
-
-          description: <div v-html="post.postContent" /> ==
+          title: {{ post.post_title }}==
+          <br>
+          description: {{ post.post_contents }} ==
           <!-- <client-only>
             <quill-editor
               ref="editor"
@@ -15,73 +15,15 @@
             />
           </client-only> -->
           <br>
-          postSeoUrl: {{ post.postSeoUrl }}
-          <img :src="post.postImage" width="100px" alt="">
+          postSeoUrl: {{ post.post_url }}
           ================================================================================================================
         </li>
       </ul>
     </v-row>
-    <!-- <v-form v-model="valid">
-      <v-container>
-        <v-row>
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-text-field
-              v-model="postTitle"
-              :rules="nameRules"
-              :counter="10"
-              label="Post title"
-              required
-            />
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-text-field
-              v-model="postDescription"
-              :rules="nameRules"
-              :counter="10"
-              label="Post Description"
-              required
-            />
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-text-field
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            />
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-btn
-        :disabled="!valid"
-        color="success"
-        class="mr-4"
-        @click="submitForm"
-      >
-        Submit
-      </v-btn>
-    </v-form> -->
-    <v-btn
-      color="success"
-      class="mr-4"
-      @click="submitForm"
-    >
-      Submit
-    </v-btn>
   </div>
 </template>
 <script>
+import nuxtStorage from 'nuxt-storage'
 export default {
   data: () => ({
     // category: postCategory,
@@ -100,10 +42,14 @@ export default {
   }),
   computed: {
     posts () {
-      return this.$store.state.post_with_form.post_list
+      return nuxtStorage.localStorage.getData('localStoragePostList')
     }
   },
   created () {
+    console.log('localStorage')
+
+    console.log(nuxtStorage.localStorage.getData('localStoragePostList'))
+
     this.$store.dispatch('post_with_form/getPosts')
   },
   methods: {

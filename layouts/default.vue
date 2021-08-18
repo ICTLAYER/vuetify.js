@@ -300,6 +300,11 @@ export default {
 
         {
           icon: 'mdi-chart-bubble',
+          title: 'Local Storage',
+          to: '/localstorage'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Proxy Server',
           to: '/proxy_json_server'
         },
