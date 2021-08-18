@@ -90,8 +90,6 @@ export default {
     proxy: true
   },
   proxy: {
-    // 'http://10.0.0.9:3000/ak47/': 'http://localhost:8080'
-    // '/example/': 'https://jsonplaceholder.typicode.com'
     '/api/': { target: 'http://localhost:3003', pathRewrite: { '^/api/': '' } }
   },
 
