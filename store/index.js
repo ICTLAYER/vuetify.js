@@ -43,6 +43,8 @@ export const actions = {
       }
       const data = this.$axios.$post('http://localhost:8080/api/post-api-all', localStoragePostListEtag)
       if (data.length > 0) {
+        console.log('updated')
+
         nuxtStorage.localStorage.setData('localStoragePostList', data)
       }
       // console.log(data)

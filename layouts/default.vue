@@ -297,7 +297,11 @@ export default {
           title: 'API JSON Page ',
           to: '/api_json_api'
         },
-
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Local Storage Advance',
+          to: '/localstorage_advance'
+        },
         {
           icon: 'mdi-chart-bubble',
           title: 'Local Storage',
