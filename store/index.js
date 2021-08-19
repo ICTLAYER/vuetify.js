@@ -1,4 +1,4 @@
-// import nuxtStorage from 'nuxt-storage'
+import nuxtStorage from 'nuxt-storage'
 // state
 export const state = () => ({
   post_list: [],
@@ -15,7 +15,7 @@ export const mutations = {
 
     state.post_list = posts
 
-    // nuxtStorage.localStorage.setData('localStoragePostList', state.post_list)
+    nuxtStorage.localStorage.setData('localStoragePostList', state.post_list)
 
     console.log(state.post_list)
   },
@@ -35,6 +35,27 @@ export const actions = {
     await this.$axios.$get('http://localhost:8080/api/post-api-all').then(res => commit('setPostList', res))
     // commit('setPostList', items)
     // console.log(items)
+  },
+  async getPostsLocalStorage ({ commit }) {
+    if (nuxtStorage.localStorage.getData('localStoragePostListEtag')) {
+      const localStoragePostListEtag = {
+        localStoragePostListEtag: nuxtStorage.localStorage.getData('localStoragePostListEtag')
+      }
+      const data = this.$axios.$post('http://localhost:8080/api/post-api-all', localStoragePostListEtag)
+      if (data.length > 0) {
+        nuxtStorage.localStorage.setData('localStoragePostList', data)
+      }
+      // console.log(data)
+    } else {
+      const postData = await this.$axios.$get('http://localhost:8080/api/post-api-all')
+      const etag = postData.pop()
+      nuxtStorage.localStorage.setData('localStoragePostListEtag', etag)
+      nuxtStorage.localStorage.setData('localStoragePostList', postData)
+      // console.log(postData)
+    }
+
+    // commit('setPostList', items)
+    // console.log(etag)
   },
   async getPostsPagination ({ commit }, pagination) {
     console.log(pagination)

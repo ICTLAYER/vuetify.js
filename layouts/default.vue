@@ -359,12 +359,8 @@ export default {
     }
   },
   created () {
-    console.log('created')
-
     this.$store.dispatch('getPosts')
-    // const posts = this.$store.post_list
-
-    // console.log(posts)
+    this.$store.dispatch('getPostsLocalStorage')
   }
 }
 </script>
