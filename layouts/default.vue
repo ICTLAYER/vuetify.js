@@ -304,6 +304,16 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'localstorage_with_content',
+          to: '/localstorage_content/localstorage_with_content'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'localstorage_create_content',
+          to: '/localstorage_content/localstorage_create_content'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Local Storage',
           to: '/localstorage'
         },
