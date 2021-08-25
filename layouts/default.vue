@@ -244,6 +244,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'Fire Base',
+          to: '/firebase/firebase'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'List',
           to: '/list'
         },
