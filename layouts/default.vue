@@ -249,6 +249,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'FireBase List',
+          to: '/firebase/firebase_blog'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'List',
           to: '/list'
         },

@@ -54,6 +54,25 @@ export default {
     '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyA7gMRW2JOm_TrfLhkvpLTOqGm8jInjT8o',
+          authDomain: 'cmslayer-c3869.firebaseapp.com',
+          databaseURL: 'https://cmslayer-c3869.firebaseio.com',
+          projectId: 'cmslayer-c3869',
+          storageBucket: 'cmslayer-c3869.appspot.com',
+          messagingSenderId: '1027810095143',
+          appId: '1:1027810095143:web:1494a6909d5ae36db79e02'
+        },
+        services: {
+          auth: true,
+          ssr: true,
+          firestore: { ssr: true } // Just as example. Can be any other service.
+        }
+      }
+    ],
     '@nuxt/content',
     [
       'nuxt-i18n',
