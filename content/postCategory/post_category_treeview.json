@@ -1,40 +1,40 @@
 {
   "post_category": [
     {
-      "id": 1,
-      "label": "post category name",
+      "id": "sports",
+      "label": "Sports",
       "children": [
         {
-          "id": 11,
-          "label": "post category name 11"
+          "id": "cricket",
+          "label": "Cricket"
         },
         {
-          "id": 12,
-          "label": "post category name 12"
+          "id": "football",
+          "label": "Football"
         }
       ]
     },
     {
-      "id": 2,
-      "label": "post category name 2",
+      "id": "entertainment",
+      "label": "Entertainment",
       "children": [
         {
-          "id": 21,
-          "label": "post category name 21"
+          "id": "bollywood",
+          "label": "Bollywood"
         },
         {
-          "id": 22,
-          "label": "post category name 22"
+          "id":  "hollywood",
+          "label": "Hollywood"
         }
       ]
     },
     {
-      "id": 3,
-      "label": "post category name 3",
+      "id": "politics",
+      "label": "Politics",
       "children": [
         {
-          "id": 31,
-          "label": "post category name 31"
+          "id": "bangladesh-politics",
+          "label": "Bangladesh Politics"
         }
       ]
     }
